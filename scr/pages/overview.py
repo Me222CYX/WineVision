@@ -18,7 +18,7 @@ def create_layout(app):
                     # Row 3
                     html.Div(
                         [
-                            html.H5('Motivation'),
+                            html.H3('Motivation'),
                             html.Br([]),
                             html.P(
                                 "\
@@ -41,7 +41,7 @@ def create_layout(app):
                                 of physicochemical variables and how they interact to determine the subjective quality of a wine. \
                                 Our visualizations will allow users to test and discover for themselves these relationships. \
                                 Wine producers, wine enthusiasts, and curious individuals can all make use of this dashboard.",
-                                    style={'color':"black"},
+                                    style={'color':"#FFFFFF"},
                                      className="row",  
                                 ),
                         ],
