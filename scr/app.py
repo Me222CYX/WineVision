@@ -2,11 +2,27 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+import altair as alt
 from dash.dependencies import Input, Output
 from pages import (
     intergraph,
     overview
 )
+
+import pandas as pd
+import numpy as np
+
+#------------------
+# imort data
+
+wine = pd.read_csv("scr/data/wine_dash.csv")
+wine['Taste'] = np.where(wine['quality']<6, 'Below average', (np.where(wine['quality']>6.5, 'Above average', 'Average')))
+
+wine.head()
+#---------------------
+
+
+
 app = dash.Dash(
     __name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}]
 )
@@ -34,7 +50,7 @@ def display_page(pathname):
         return overview.create_layout(app)
     
 @app.callback(
-     Output('scatter', 'srcDoc'),
+     Output('histgram', 'srcDoc'),
      Input('xcol-widget', 'value')
      )
 
@@ -44,5 +60,6 @@ def plot_altair(xcol):
         y=alt.Y('count()'),
         color='Taste').interactive()
     return chart.to_html()
+
 if __name__ == "__main__":
     app.run_server(debug=True)

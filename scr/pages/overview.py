@@ -6,7 +6,6 @@ import pathlib
 import pandas as pd
 import numpy as np
 
-
 def create_layout(app):
     # Page layouts
     return html.Div(    
