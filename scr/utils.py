@@ -56,7 +56,12 @@ def get_menu():
                 "Interactive Graphics",
                 href="/WineVison/scr/intergraph",
                 className="tab",
-            )
+            ),
+            dcc.Link(
+                "Machine Learning",
+                href="/WineVison/scr/modelling",
+                className="tab",
+            ),
         ],
         className="row all-tabs",
     )
