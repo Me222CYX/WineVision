@@ -127,7 +127,7 @@ def plot_altair_3(xcol,ycol):
      )
 def plot_altair_4(xcol,ycol):
     brush = alt.selection_interval()
-    points = alt.Chart(wine,title="Interactive Plot of Citric Acid Concentration vs Volatile Acidity for 3 Quality Levels").mark_point().encode(
+    points = alt.Chart(wine,title="Interactive Plot of "+ ycol+" vs "+ xcol +" for 3 Quality Levels" ).mark_point().encode(
     alt.X(xcol, scale=alt.Scale(zero=False)),
     alt.Y(ycol, scale=alt.Scale(zero=False)),
     color=alt.condition(brush, 'Taste:N', alt.value('lightgray'))
